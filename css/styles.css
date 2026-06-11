@@ -110,7 +110,8 @@ body{
 
 .hero-content{
     max-width:850px;
-}
+    gap: 20px; /* spacing antar badge */
+    margin-top: 3rem; /* jarak antara badge dan judul */}
 
 .hero-badge{
     display:inline-flex;
@@ -120,7 +121,7 @@ body{
     border:1px solid var(--border);
     font-size:.85rem;
     font-weight:600;
-    margin-bottom:2rem;
+    margin-bottom:1rem;
 }
 
 .hero-title{
