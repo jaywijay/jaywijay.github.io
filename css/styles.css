@@ -111,7 +111,7 @@ body{
 .hero-content{
     max-width:850px;
     gap: 20px; /* spacing antar badge */
-    margin-top: 3rem; /* jarak antara badge dan judul */}
+    margin-top: 4rem; /* jarak antara badge dan judul */}
 
 .hero-badge{
     display:inline-flex;
@@ -121,17 +121,16 @@ body{
     border:1px solid var(--border);
     font-size:.85rem;
     font-weight:600;
-    margin-bottom:1rem;
 }
 
 .hero-title{
     font-size:clamp(4rem,8vw,7rem);
     font-weight:800;
-    line-height:.95;
     letter-spacing:-4px;
 }
 
 .hero-title span{
+    margin-top: -20px;
     display:block;
     background:linear-gradient(
         to right,
@@ -147,7 +146,6 @@ body{
     font-size:1.2rem;
     line-height:1.9;
     color:var(--muted);
-    margin-top:2rem;
 }
 
 /* BUTTONS */
@@ -317,6 +315,7 @@ body{
     display:flex;
     flex-wrap:wrap;
     gap:1rem;
+    justify-content:center;
 }
 
 .skills-wrapper span{
@@ -330,11 +329,20 @@ body{
 
 .skills-wrapper span:hover{
     transform:translateY(-4px);
+    
 }
 
+/* ABOUT */
+.about-text {
+    margin-top: -50px;
+    text-align:center;
+    font-size: 1.1rem;
+    line-height: 2;
+}
 /* CONTACT */
 .contact-box{
     text-align:center;
+    justify-content:center;
     padding:5rem;
     border-radius:40px;
     background:var(--surface);
@@ -355,6 +363,23 @@ body{
 .contact-box p{
     color:var(--muted);
     margin-bottom:2rem;
+    display: flex;
+    justify-content: center;
+}
+
+.contact-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+}
+
+.contact-buttons a {
+    min-width: 180px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
 }
 
 /* ANIMATION */
