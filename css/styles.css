@@ -71,6 +71,10 @@ body{
     color:var(--text);
 }
 
+.navbar-toggler{
+    color: var(--text);
+}
+
 .theme-btn{
     border:none;
     width:48px;
@@ -138,6 +142,7 @@ body{
         #2563eb,
         #7c3aed
     );
+    background-clip:text;
     -webkit-background-clip:text;
     -webkit-text-fill-color:transparent;
 }
