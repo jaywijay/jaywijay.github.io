@@ -110,8 +110,9 @@ body{
 
 .hero-content{
     max-width:850px;
-    gap: 20px; /* spacing antar badge */
-    margin-top: 4rem; /* jarak antara badge dan judul */}
+    gap: 30px; /* spacing antar badge */
+    padding-top: 50px; /* jarak antara badge dan deskripsi */
+}
 
 .hero-badge{
     display:inline-flex;
@@ -143,8 +144,8 @@ body{
 
 .hero-description{
     max-width:720px;
-    font-size:1.2rem;
-    line-height:1.9;
+    font-size:1rem;
+    line-height:1.5;
     color:var(--muted);
 }
 
@@ -310,6 +311,32 @@ body{
     font-weight:600;
 }
 
+/* Mengatur kontainer list agar mendatar */
+.tech-tags {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 0;
+    margin: 16px 0;
+    list-style: none; /* Menghilangkan bullet bawaan (titik besar di kiri) */   /* Warna biru sesuai gambar (sesuaikan jika perlu) */
+    font-size: 16px;
+    font-weight: 500;
+}
+
+/* Memastikan setiap teks di dalam list sejajar */
+.tech-tags li {
+    display: flex;
+    align-items: center;
+}
+
+/* KUNCI UTAMA: Menambahkan titik (•) SETELAH setiap item, KECUALI item terakhir */
+.tech-tags li:not(:last-child)::after {
+    content: "•";       /* Karakter titik tengah */
+    margin: 0 8px;      /* Memberikan jarak (spasi) di kiri dan kanan titik */
+    font-size: 16px;    /* Ukuran titik */
+    color: #4a90e2;     /* Warna titik (sama dengan teks) */
+}
+
 /* SKILLS */
 .skills-wrapper{
     display:flex;
@@ -355,7 +382,7 @@ body{
 }
 
 .contact-box h2{
-    font-size:clamp(2rem,5vw,4rem);
+    font-size:clamp(2rem,4vw,4rem);
     font-weight:800;
     margin:1rem 0;
 }
@@ -376,7 +403,7 @@ body{
 }
 
 .contact-buttons a {
-    min-width: 180px;
+    /* min-width: 180px; */
     display: flex;
     justify-content: center;
     text-align: center;
