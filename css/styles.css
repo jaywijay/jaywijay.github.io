@@ -466,3 +466,33 @@ body{
     }
 
 }
+
+.budget-result{
+    display:grid;
+    gap:1rem;
+    margin-top:2rem;
+}
+
+.budget-card{
+    background:var(--secondary);
+    border:1px solid var(--border);
+    border-radius:20px;
+    padding:1.5rem;
+}
+
+.budget-card h5{
+    font-weight:700;
+    margin-bottom:.5rem;
+}
+
+.budget-card small{
+    display:block;
+    color:var(--muted);
+    margin-bottom:1rem;
+}
+
+.budget-card h4{
+    margin:0;
+    font-weight:800;
+    color:#3b82f6;
+}

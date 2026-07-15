@@ -242,3 +242,118 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
 });
+
+
+
+
+const salaryInput =
+    document.getElementById("salary");
+
+salaryInput.addEventListener(
+    "input",
+    function (e) {
+
+        let value =
+            e.target.value
+                .replace(/[^,\d]/g, "");
+
+        if (!value) {
+            e.target.value = "";
+            return;
+        }
+
+        const split =
+            value.split(",");
+
+        const remainder =
+            split[0].length % 3;
+
+        let rupiah =
+            split[0].substr(
+                0,
+                remainder
+            );
+
+        const thousands =
+            split[0]
+                .substr(remainder)
+                .match(/\d{3}/g);
+
+        if (thousands) {
+
+            const separator =
+                remainder
+                    ? "."
+                    : "";
+
+            rupiah +=
+                separator +
+                thousands.join(".");
+        }
+
+        e.target.value =
+            "Rp " + rupiah;
+    }
+);
+
+function formatCurrency(number) {
+    return new Intl.NumberFormat(
+        "id-ID",
+        {
+            style: "currency",
+            currency: "IDR",
+            minimumFractionDigits: 0,
+            maximumFractionDigits: 0
+        }
+    ).format(number);
+}
+
+function calculateBudget() {
+
+    const salary =
+    Number(
+        document
+            .getElementById("salary")
+            .value
+            .replace(/[^0-9]/g, "")
+    );
+
+    if (!salary) {
+        return;
+    }
+
+    const kebutuhan =
+        salary * 0.475;
+
+    const keinginan =
+        salary * 0.30;
+
+    const masaDepan =
+        salary * 0.20;
+
+    const sedekah =
+        salary * 0.025;
+
+    const target =
+        salary * 6;   
+
+    document.getElementById(
+        "budgetResult"
+    ).innerHTML = `
+        <p>🏠 Kebutuhan Pokok : ${formatCurrency(kebutuhan)}</p>
+        <p>🎉 Keinginan : ${formatCurrency(keinginan)}</p>
+        <p>📈 Masa Depan & Utang : ${formatCurrency(masaDepan)}</p>
+        <p>❤️ Sedekah : ${formatCurrency(sedekah)}</p>
+         <ul class="budget-list">
+                        <li>Kebutuhan Pokok (47,5%): Biaya sewa/KPR, cicilan kendaraan, bahan makanan (belanja mingguan), tagihan listrik, air, gas, internet, dan transportasi kerja</li>
+                        <li>Keinginan (30%): Biaya nongkrong, streaming film, langganan gim, liburan, belanja baju, dan hobi</li>
+            <li>Masa Depan & Utang (20%): Tabungan darurat, investasi (reksa dana, saham), asuransi, dan cicilan utang konsumtif (seperti kartu kredit)</li>
+             <li>Sedekah atau berbagi (2,5%): biaya untuk sedekah atau berbagi kepada orang yang membutuhkan</li>
+         </ul>
+
+         <p> ======================================= </p>
+         <p>💰 Total Dana Darurat yang Disarankan : ${formatCurrency(target)}</p>
+         <p>💡 Catatan: Dana darurat disarankan setara dengan 6 bulan pengeluaran bulanan.</p>
+    `;
+}
+
